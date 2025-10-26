@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import api from "../api.js";
 
 const AddAgent = () => {
 
@@ -48,7 +49,7 @@ const AddAgent = () => {
      setLoading(true)
 
      try {
-        const response  = await axios.post("http://localhost:8000/api/agents",agent) 
+        const response  = await api.post("/api/agents",agent) 
         const data = await response.json()
         if(!response.ok)
         {
