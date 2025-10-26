@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import api from "../api.js"
 
 const Dashboard = () => {
   const [agents, setAgents] = useState([]);
@@ -20,7 +19,7 @@ const Dashboard = () => {
 
     const fetchDistributedLists = async () => {
       try {
-        const res = await api.get("/files/distributed", {
+        const res = await axios.get("http://localhost:8000/files/distributed", {
           headers: { Authorization: `Bearer ${token}` },
         });
 

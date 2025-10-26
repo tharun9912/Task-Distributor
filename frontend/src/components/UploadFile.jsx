@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import api from "../api.js";
 
 const UploadFile = () => {
   const [file, setFile] = useState(null);
@@ -51,8 +50,8 @@ const UploadFile = () => {
       formData.append("file", file);
 
       // Directly call backend without external API file
-      const response = await api.post(
-        "/files/upload",
+      const response = await axios.post(
+        "http://localhost:8000/files/upload",
         formData,
         {
           headers: {
